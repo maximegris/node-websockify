@@ -105,9 +105,9 @@ var http_request = function (request, response) {
 };
 
 function initWsServer(_argv) {
-	argv = _argv;
-	source_arg = argv.source;
-	target_arg = argv.target;
+	var argv = _argv;
+	var source_arg = argv.source;
+	var target_arg = argv.target;
 	// parse source and target arguments into parts
 	try {
 		var idx;
