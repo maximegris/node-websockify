@@ -12,7 +12,7 @@ var net = require('net'),
 
 	webServer, wsServer,
 	source_host, source_port, target_host, target_port,
-	web_path = null
+	web_path = null,
 	argv = null;
 
 // Handle new WebSocket client
