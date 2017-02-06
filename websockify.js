@@ -15,8 +15,6 @@ var net = require('net'),
 	web_path = null
 	argv = null;
 
-
-
 // Handle new WebSocket client
 var new_client = function(client) {
 	var clientAddr = client._socket.remoteAddress, log;
@@ -106,7 +104,7 @@ var http_request = function (request, response) {
 	});
 };
 
-var initWsServer = function(_argv) {
+function initWsServer(_argv) {
 	argv = _argv;
 	source_arg = argv.source;
 	target_arg = argv.target;
@@ -159,3 +157,5 @@ var initWsServer = function(_argv) {
 		wsServer.on('connection', new_client);
 	});
 }
+
+module.export = initWsServer;
