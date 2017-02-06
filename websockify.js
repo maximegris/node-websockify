@@ -158,4 +158,4 @@ function initWsServer(_argv) {
 	});
 }
 
-module.export = initWsServer;
+module.exports = initWsServer;
