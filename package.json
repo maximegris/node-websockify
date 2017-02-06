@@ -3,6 +3,7 @@
   "name": "node-websockify",
   "description": "node-websockify is a WebSocket-to-TCP proxy/bridge you can use in a NodeJS program",
   "version": "0.0.2",
+  "main": "websockify.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/maximegris/node-websockify.git"
