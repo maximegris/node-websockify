@@ -43,6 +43,6 @@ websockify({
 | source | URL of websocket Server | null |
 | target | URL of the VNC Server  | null  |
 | web | Directory of static sources exposed by the server | null  (optional) |
-| cert | Pattern of file to add in master changelog. Get all files in resources directory if not defined | null (optional) |
-| key | Apply a custom sort pattern on some files. During comparison, if one or both files don't match the pattern, it use String.equals | null (optional) |
+| cert | Path of the SSL certificate | null (optional) |
+| key | Key of the SSL certificate | null (optional) |
 
