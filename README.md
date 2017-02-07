@@ -1,4 +1,4 @@
-# Liquibase Changelog Maven Plugin 
+# WebSocket-to-TCP proxy/bridge in NodeJS
 [![Build Status](https://travis-ci.org/maximegris/node-websockify.svg?branch=master)](https://travis-ci.org/maximegris/node-websockify) 
 [![License](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)](https://github.com/maximegris/node-websockify/blob/master/LICENSE.md)
 
