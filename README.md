@@ -10,7 +10,7 @@ Node-websockify is a WebSocket-to-TCP proxy/bridge you can use in a NodeJS progr
 Import this module in your project
 
 ```bash
-npm install --save maximegris/node-websockify
+npm install --save node-websockify
 ```
 
 Require the module and call the main function in your programm code
