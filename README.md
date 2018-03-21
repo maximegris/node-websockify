@@ -1,9 +1,11 @@
-# WebSocket-to-TCP proxy/bridge in NodeJS
+# WebSocket-to-TCP proxy/bridge in NodeJS (inspired of https://github.com/novnc/websockify)
 [![Build Status](https://travis-ci.org/maximegris/node-websockify.svg?branch=master)](https://travis-ci.org/maximegris/node-websockify) 
-[![License](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)](https://github.com/maximegris/node-websockify/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/maximegris/node-websockify/blob/master/LICENSE.md)
 
 
-Node-websockify is a WebSocket-to-TCP proxy/bridge you can use in a NodeJS program.
+Node-websockify is a WebSocket-to-TCP proxy/bridge you can use in a NodeJS program. 
+
+As said it is inspired of the javascript library of https://github.com/novnc/websockify. Sadly this librairy can't be used directly in a nodeJS program taht's why I created this project.
 
 ## Usage ##
 
