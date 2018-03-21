@@ -1,4 +1,4 @@
-# WebSocket-to-TCP proxy/bridge in NodeJS (inspired of https://github.com/novnc/websockify)
+# WebSocket-to-TCP proxy/bridge in NodeJS (forked & inspired by https://github.com/novnc/websockify)
 [![Build Status](https://travis-ci.org/maximegris/node-websockify.svg?branch=master)](https://travis-ci.org/maximegris/node-websockify) 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/maximegris/node-websockify/blob/master/LICENSE.md)
 
