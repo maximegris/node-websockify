@@ -16,9 +16,9 @@ var net = require('net'),
 	argv = null;
 
 // Handle new WebSocket client
-var new_client = function(client) {
+var new_client = function(client, req) {
 	var clientAddr = client._socket.remoteAddress, log;
-	if(client.upgradeReq && client.upgradeReq.url) console.log(client.upgradeReq.url);
+	console.log(req ? req.url : client.upgradeReq.url);
 	log = function (msg) {
 		console.log(' ' + clientAddr + ': '+ msg);
 	};
