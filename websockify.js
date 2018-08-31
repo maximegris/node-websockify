@@ -6,6 +6,7 @@ var net = require('net'),
 	url = require('url'),
 	path = require('path'),
 	fs = require('fs'),
+  serveStatic = require('serve-static'),
 
 	Buffer = require('buffer').Buffer,
 	WebSocketServer = require('ws').Server,
@@ -13,6 +14,7 @@ var net = require('net'),
 	webServer, wsServer,
 	source_host, source_port, target_host, target_port,
 	web_path = null,
+	serve = null,
 	argv = null;
 
 // Handle new WebSocket client
@@ -61,7 +63,6 @@ var new_client = function(client, req) {
 	});
 };
 
-
 // Send an HTTP error response
 var http_error = function (response, code, msg) {
 	response.writeHead(code, {"Content-Type": "text/plain"});
@@ -80,32 +81,12 @@ var http_request = function (request, response) {
 		return http_error(response, 403, "403 Permission Denied");
 	}
 
-	var uri = url.parse(request.url).pathname
-		, filename = path.join(argv.web, uri);
-	
-	fs.exists(filename, function(exists) {
-		if(!exists) {
-			return http_error(response, 404, "404 Not Found");
-		}
-
-		if (fs.statSync(filename).isDirectory()) {
-			filename += '/index.html';
-		}
-
-		fs.readFile(filename, "binary", function(err, file) {
-			if(err) {
-				return http_error(response, 500, err);
-			}
-
-			response.writeHead(200);
-			response.write(file, "binary");
-			response.end();
-		});
-	});
+  serve(request, response);
 };
 
 function initWsServer(_argv) {
-	var argv = _argv;
+	// var argv = _argv;
+	argv = _argv;
 	var source_arg = argv.source;
 	var target_arg = argv.target;
 	// parse source and target arguments into parts
@@ -140,6 +121,8 @@ function initWsServer(_argv) {
 				" to " + target_host + ":" + target_port);
 	if (argv.web) {
 		console.log("    - Web server active. Serving: " + argv.web);
+
+    serve = serveStatic(argv.web, {'index': ['index.html', 'index.htm']});
 	}
 
 	if (argv.cert) {
