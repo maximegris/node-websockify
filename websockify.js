@@ -12,7 +12,6 @@ var net = require('net'),
 
 	webServer, wsServer,
 	source_host, source_port, target_host, target_port,
-	web_path = null,
 	argv = null;
 
 // Handle new WebSocket client
@@ -76,7 +75,7 @@ var http_request = function (request, response) {
 //    res.writeHead(200, {'Content-Type': 'text/plain'});
 //    res.end('okay');
 
-	if (! argv.web) {
+	if (!argv.web) {
 		return http_error(response, 403, "403 Permission Denied");
 	}
 
@@ -105,7 +104,7 @@ var http_request = function (request, response) {
 };
 
 function initWsServer(_argv) {
-	var argv = _argv;
+	argv = _argv;
 	var source_arg = argv.source;
 	var target_arg = argv.target;
 	// parse source and target arguments into parts
