@@ -7,6 +7,7 @@ var net = require('net'),
 	path = require('path'),
 	fs = require('fs'),
 
+	mime = require('mime'),
 	Buffer = require('buffer').Buffer,
 	WebSocketServer = require('ws').Server,
 
@@ -96,6 +97,7 @@ var http_request = function (request, response) {
 				return http_error(response, 500, err);
 			}
 
+			response.setHeader('Content-type', mime.getType(path.parse(uri).ext));
 			response.writeHead(200);
 			response.write(file, "binary");
 			response.end();
