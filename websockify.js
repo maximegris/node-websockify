@@ -13,7 +13,10 @@ var net = require('net'),
 
 	webServer, wsServer,
 	source_host, source_port, target_host, target_port,
-	argv = null;
+	argv = null,
+	
+	onConnectedCallback = null,
+	onDisconnectedCallback = null;	
 
 // Handle new WebSocket client
 var new_client = function(client, req) {
@@ -22,11 +25,20 @@ var new_client = function(client, req) {
 	log = function (msg) {
 		console.log(' ' + clientAddr + ': '+ msg);
 	};
-	log('WebSocket connection');
+	log('WebSocket connection from : ' + clientAddr);
 	log('Version ' + client.protocolVersion + ', subprotocol: ' + client.protocol);
 
 	var target = net.createConnection(target_port,target_host, function() {
 		log('connected to target');
+		if (onConnectedCallback)
+		{
+			try {
+				onConnectedCallback(client, target);
+			} catch(e) {
+				log("onConnectedCallback failed, cleaning up target");
+				target.end();
+			}
+		}
 	});
 	target.on('data', function(data) {
 		//log("sending message: " + data);
@@ -52,6 +64,16 @@ var new_client = function(client, req) {
 		target.write(msg);
 	});
 	client.on('close', function(code, reason) {
+		
+		if (onDisconnectedCallback)
+		{
+			try {
+				onDisconnectedCallback(client, code, reason);
+			} catch(e) {
+				log("onDisconnectedCallback failed");
+			}
+		}		
+
 		log('WebSocket client disconnected: ' + code + ' [' + reason + ']');
 		target.end();
 	});
@@ -105,10 +127,30 @@ var http_request = function (request, response) {
 	});
 };
 
-function initWsServer(_argv) {
+function initWsServer(_argv, callbacks = undefined) {
 	argv = _argv;
 	var source_arg = argv.source;
 	var target_arg = argv.target;
+	
+	if (!callbacks)
+	{
+		console.log("no callbacks");
+	}
+	else
+	{
+		if (callbacks.onConnected)
+		{
+			onConnectedCallback = callbacks.onConnected;
+			console.log("onConnectedCallback registered");
+		}
+		
+		if (callbacks.onDisconnected)
+		{
+			onDisconnectedCallback = callbacks.onDisconnected;
+			console.log("onDisconnectedCallback registered");			
+		}		
+	}
+	
 	// parse source and target arguments into parts
 	try {
 		var idx;
