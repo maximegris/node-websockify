@@ -18,7 +18,7 @@ npm install --save node-websockify
 Require the module and call the main function in your programm code
 
 ```javascript
-var websockify = require('node-websockify');
+var websockify = require('@maximegris/node-websockify');
 websockify({
 source: 'url:port',
 target: 'url:port',
@@ -31,11 +31,8 @@ key: 'certSSL-key'
 Example :
 
 ```javascript
-var websockify = require('node-websockify');
-websockify({
-  source: '127.0.0.1:8080',
-  target: '192.168.0.100:5900'
-});
+var websockify = require('@maximegris/node-websockify');
+websockify({  source: '127.0.0.1:8080', target: '192.168.0.100:5900'});
 ```
 
 ## Options ##

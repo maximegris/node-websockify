@@ -8,3 +8,7 @@ node_js:
 install:
   - npm set progress=false
   - npm install
+script:
+  - cd test
+  - npm install
+  - npm start
