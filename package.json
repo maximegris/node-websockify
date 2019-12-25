@@ -1,8 +1,8 @@
 {
   "author": "Maxime GRIS",
-  "name": "node-websockify",
+  "name": "@maximegris/node-websockify",
   "description": "node-websockify is a WebSocket-to-TCP proxy/bridge you can use in a NodeJS program",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "websockify.js",
   "keywords": [
     "webscoket",
@@ -25,5 +25,14 @@
   "dependencies": {
     "mime": ">=2.4.3",
     "ws": ">=0.4.27"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/maximegris/node-websockify/issues"
+  },
+  "homepage": "https://github.com/maximegris/node-websockify#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
 }
