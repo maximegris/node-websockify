@@ -4,4 +4,4 @@ coverage/
 .idea/
 .tmp/
 dist/
-paxkage-lock.json
+package-lock.json
