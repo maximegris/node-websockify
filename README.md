@@ -5,7 +5,7 @@
 
 Node-websockify is a WebSocket-to-TCP proxy/bridge you can use in a NodeJS program. 
 
-As said it is inspired of the javascript library of https://github.com/novnc/websockify. Unfortunately this library can't be used directly in a nodeJS program.Thats the reason why I created this project.
+As said it is inspired of the javascript library of https://github.com/novnc/websockify. Unfortunately this library can't be used directly in a nodeJS program. Thats the reason why I created this project.
 
 ## Usage ##
 
@@ -15,7 +15,7 @@ Import this module in your project
 npm install --save node-websockify
 ```
 
-Require the module and call the main function in your programm code
+Require the module and call the main function in your program code
 
 ```javascript
 var websockify = require('@maximegris/node-websockify');
