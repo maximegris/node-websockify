@@ -12,7 +12,7 @@ As said it is inspired of the javascript library of https://github.com/novnc/web
 Import this module in your project
 
 ```bash
-npm install --save node-websockify
+npm install --save @maximegris/node-websockify
 ```
 
 Require the module and call the main function in your program code
